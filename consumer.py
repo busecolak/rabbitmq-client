@@ -12,7 +12,7 @@ def main():
 
     channel = connection.channel()
 
-    channel.queue_declare(queue=QUEUE)
+    channel.queue_declare(queue=QUEUE, durable=True)
 
     def callback(ch, method, properties, body):
         print(" [x] Received %r" % body)

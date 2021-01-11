@@ -2,7 +2,7 @@
 import logging
 import connection_util
 
-EXCHANGE = 'temp_exchange'
+EXCHANGE = ''
 QUEUE = 'temp_queue'
 MESSAGE = 'Hello World!'
 
@@ -15,7 +15,7 @@ channel = connection.channel()
 channel.queue_declare(queue=QUEUE, durable=True)
 
 channel.basic_publish(exchange=EXCHANGE,
-                      routing_key='standard_key', body=MESSAGE)
+                      routing_key=QUEUE, body=MESSAGE)
 
 print("[x] Sent " + MESSAGE)
 
